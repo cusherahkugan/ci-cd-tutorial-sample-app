@@ -10,4 +10,4 @@ migrate = Migrate(app, db)
 
 from app import routes, models
 
-#NEW COMMIT
+#NEW COMMIT 1
