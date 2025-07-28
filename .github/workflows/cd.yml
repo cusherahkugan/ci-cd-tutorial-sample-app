@@ -2,16 +2,23 @@ name: Python CD
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]  # Change to 'main' if your branch is main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Heroku CLI
+        run: |
+          curl https://cli-assets.heroku.com/install.sh | sh
+
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: "ci-cd-tutorial-app"
-          heroku_email: "mwasfan3@gmail.com" 
+          heroku_email: "mwasfan3@gmail.com"
