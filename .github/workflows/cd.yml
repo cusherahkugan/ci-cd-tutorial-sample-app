@@ -21,11 +21,6 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
 
-      - name: Create Heroku app (if needed)
-        run: heroku create ci-cd-tutorial-app
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-
       - name: Push code to Heroku
         run: git push heroku master --force
         env:
