@@ -21,6 +21,9 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
 
+      - name: Add Heroku git remote
+        run: git remote add heroku https://git.heroku.com/ci-cd-tutorial-app.git
+
       - name: Push code to Heroku
         run: git push heroku master --force
         env:
