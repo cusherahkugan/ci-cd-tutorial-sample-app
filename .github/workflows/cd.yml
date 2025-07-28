@@ -33,3 +33,8 @@ jobs:
         run: heroku run python seed.py --app ci-cd-tutorial-app
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+
+      - name: Open Heroku app URL
+        run: heroku open --app ci-cd-tutorial-app
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
