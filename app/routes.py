@@ -7,6 +7,8 @@ from app.models import Menu
 def home():
     return jsonify({ "message": "CI/CD pipeline demo working!", "status": "ok" })
 print("Trigger CI")
+print("Trigger CD")
+
 @app.route('/menu')
 def menu():
     today = Menu.query.first()
